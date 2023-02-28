@@ -74,7 +74,7 @@ def closestPairDivideNConquer(arrayPoint, n, dim):
             if (arrayPoint[i][0] >= (midPoint - result[0])) and (arrayPoint[i][0] <= (midPoint + result[0])):
                 strip.append(arrayPoint[i])
 
-        if (len(strip > 1)):
+        if (len(strip) > 1):
             for i in range(0, len(strip)):
                 for j in range(i+1, len(strip)):
                     found = True
