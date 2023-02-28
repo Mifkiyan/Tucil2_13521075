@@ -34,15 +34,37 @@ def closestPairDivideNConquer(arrayPoint, n):
 
         result = []
 
-        if (dleft < dright):
+        if (dleft[0] < dright[0]):
             result = dleft
         else:
             result = dright
+
+        strip = []
 
         if (n % 2 == 0):
             midPoint = (arrayPoint[mid-1][0]+arrayPoint[mid][0])/2
         else:
             midPoint = arrayPoint[mid][0]
+
+        for i in range(len(arrayPoint)):
+            if (arrayPoint[i][0] >= midPoint - result[0]) and (arrayPoint[i][0] <= midPoint + result[0]):
+                strip.append(arrayPoint[i])
+
+        a = 0
+        b = 1
+        distance = euclideanDistance(strip[a], strip[b])
+        for i in range(len(strip)):
+            for j in range(i+1, len(strip)):
+                temp = euclideanDistance(strip[i], strip[j])
+                if (temp < distance):
+                    distance = temp
+                    a = i
+                    b = j
+
+        if (distance < result[0]):
+            result = [distance, strip[a], strip[b]]
+
+        return result
 
 
 def closestPairBruteForce(arrayPoint):
