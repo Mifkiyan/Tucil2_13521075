@@ -74,17 +74,18 @@ def closestPairDivideNConquer(arrayPoint, n, dim):
             if (arrayPoint[i][0] >= (midPoint - result[0])) and (arrayPoint[i][0] <= (midPoint + result[0])):
                 strip.append(arrayPoint[i])
 
-        for i in range(0, len(strip)):
-            for j in range(i+1, len(strip)):
-                found = True
-                for k in range(dim):
-                    if found:
-                        found = found and (
-                            abs(strip[i][k]-strip[j][k]) < result[0])
-                if (found):
-                    distance = euclideanDistance(strip[i], strip[j])
-                    if (distance < result[0]):
-                        result = [distance, strip[i], strip[j]]
+        if (len(strip > 1)):
+            for i in range(0, len(strip)):
+                for j in range(i+1, len(strip)):
+                    found = True
+                    for k in range(dim):
+                        if found:
+                            found = found and (
+                                abs(strip[i][k]-strip[j][k]) < result[0])
+                    if (found):
+                        distance = euclideanDistance(strip[i], strip[j])
+                        if (distance < result[0]):
+                            result = [distance, strip[i], strip[j]]
 
         return result
 
