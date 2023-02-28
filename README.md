@@ -9,7 +9,7 @@ Program ini dibuat dengan menggunakan bahasa Python sehingga dibutuhkan untuk me
 ## Cara Penggunaan Program
 Anda dapat langsung menggunakan program ini dengan menjalankan command :
 ```
-python3 src/main.py
+python src/main.py
 ```
 
 ## Author
