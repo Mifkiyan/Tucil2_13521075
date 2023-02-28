@@ -3,7 +3,6 @@ import random
 
 euclideanCalled = 0
 
-
 def randomPoint(n, dim):
     arrayPoint = []
     for i in range(0, n):

@@ -3,13 +3,11 @@ import time
 import platform
 
 dim = int(input("Masukkan banyak dimensi : "))
-
 while dim < 2:
     print("Masukan tidak valid. Dibutuhkan minimal 2 dimensi\n")
     dim = int(input("Masukkan banyak dimensi : "))
 
 n = int(input("Masukkan banyak titik : "))
-
 while n < 2:
     print("Masukan tidak valid. Dibutuhkan minimal 2 titik untuk menghitung jarak\n")
     n = int(input("Masukkan banyak titik : "))
