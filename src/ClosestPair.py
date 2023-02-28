@@ -26,7 +26,7 @@ def euclideanDistance(point1, point2):
 
 def sortPointbyX(arrayPoint):
     for i in range(0, len(arrayPoint)):
-        for j in range(i, len(arrayPoint)-1):
+        for j in range(0, len(arrayPoint)-1-i):
             if arrayPoint[j][0] > arrayPoint[j+1][0]:
                 arrayPoint[j], arrayPoint[j+1] = arrayPoint[j+1], arrayPoint[j]
     return arrayPoint
@@ -74,18 +74,17 @@ def closestPairDivideNConquer(arrayPoint, n, dim):
             if (arrayPoint[i][0] >= (midPoint - result[0])) and (arrayPoint[i][0] <= (midPoint + result[0])):
                 strip.append(arrayPoint[i])
 
-        if (len(strip) > 1):
-            for i in range(0, len(strip)):
-                for j in range(i+1, len(strip)):
-                    found = True
-                    for k in range(dim):
-                        if found:
-                            found = found and (
-                                abs(strip[i][k]-strip[j][k]) < result[0])
-                    if (found):
-                        distance = euclideanDistance(strip[i], strip[j])
-                        if (distance < result[0]):
-                            result = [distance, strip[i], strip[j]]
+        for i in range(0, len(strip)):
+            for j in range(i+1, len(strip)):
+                found = True
+                for k in range(dim):
+                    if found:
+                        found = found and (
+                            abs(strip[i][k]-strip[j][k]) < result[0])
+                if (found):
+                    distance = euclideanDistance(strip[i], strip[j])
+                    if (distance < result[0]):
+                        result = [distance, strip[i], strip[j]]
 
         return result
 
